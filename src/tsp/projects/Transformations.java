@@ -58,4 +58,22 @@ public class Transformations {
         return new Path( newpath );
     }
 
+    public static Path Mutate( Path path ) {
+        return path;
+    }
+
+    public static Path[] Crossover( Path p1, Path p2 ) {
+        Path[] children = new Path[ 2 ];
+        children[0]
+        int length = p1.getPath().length;
+        for ( int i = 0 ; i < length ; i++ ) {
+            double rand = Math.random();
+            if ( i < 0.5 )
+                children[ 0 ].getPath()[ i ] = p1.getPath()[ i ];
+
+        }
+
+        return children;
+    }
+
 }
