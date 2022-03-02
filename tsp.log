@@ -1,36 +1,6 @@
 Évaluation des projets
-1 exécution
-1 seconde
-3 projets
+100 exécutions
+60 secondes
+0 projet
 4 problèmes
-
-tsp.projects.exemple.RandomSearch
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\bier127     	534481.328362731
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\fnl4461     	8131426.752242808
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\gr666       	54299.372076734006
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\surprise1350	873633.5628348624
-
-tsp.projects.recuit.Recuit
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\bier127     	138426.6685486553
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\fnl4461     	5459913.015485286
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\gr666       	6577.293540606301
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\surprise1350	142885.04109042676
-
-tsp.projects.hillclimbing.HillClimbing
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\bier127     	134041.32396509274
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\fnl4461     	4496182.210031331
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\gr666       	5587.353267639937
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\surprise1350	102106.0077717776
-
-Projet Hill climbing
-Pierre Henselmann
-Évaluation: 0.0
-
-Projet Recuit simulé
-Pierre Henselmann
-Évaluation: 20.59037892911462
-
-Projet Exemple
-Alexandre Blansché
-Évaluation: 501.75903133233055
 
