@@ -16,7 +16,7 @@ import static tsp.projects.Transformations.*;
 public class Evolution extends CompetitorProject {
 
     private static int NB_INDIVIDUS = 1000;
-    private static double MUTATION_CHANCE = 0.1;
+    private static double MUTATION_CHANCE = 0.5;
     private TreeMap<Double, Path> population = new TreeMap<>();
 
     public Evolution( Evaluation evaluation ) throws InvalidProjectException {
@@ -29,7 +29,7 @@ public class Evolution extends CompetitorProject {
     public void initialization() {
         for ( int i = 0 ; i < NB_INDIVIDUS ; i++ ) {
             Path path = new Path( problem.getLength() );
-            population.put( evaluation.evaluate( path ), path );
+            population.put( evaluation.quickEvaluate( path ), path );
         }
     }
 
@@ -37,6 +37,7 @@ public class Evolution extends CompetitorProject {
     public void loop() {
         reproduction();
         mutatePopulation();
+        evaluation.evaluate( population.firstEntry().getValue() );
     }
 
     public void reproduction() {
@@ -52,7 +53,7 @@ public class Evolution extends CompetitorProject {
             Path[] children = crossing( p1, p2 );
             //addChildren( children );
             for ( Path child : children )
-                newpop.put( evaluation.evaluate( child ), child );
+                newpop.put( evaluation.quickEvaluate( child ), child );
         }
 
         population = newpop;
@@ -75,6 +76,7 @@ public class Evolution extends CompetitorProject {
 
     public Path getParentWeightedByOrder() {
         //...
+        return null;
     }
 
     public Path getFitParent() {
@@ -99,20 +101,19 @@ public class Evolution extends CompetitorProject {
 
     public void addChildren( Path[] children ) {
         for ( Path child : children )
-            population.put( evaluation.evaluate( child ), child );
+            population.put( evaluation.quickEvaluate( child ), child );
     }
 
     public void mutatePopulation() {
-        HashMap<Map.Entry<Double, Path>, Path> replaceList = new HashMap<>();
-        for ( Map.Entry<Double, Path> entry : population.entrySet() ) {
+        TreeMap<Double, Path> mutated = new TreeMap<>();
+        for ( Map.Entry<Double, Path> entry : population.entrySet() )
             if ( Math.random() < MUTATION_CHANCE ) {
-                replaceList.put( entry, mutate( entry.getValue() ) );
-            }
-        }
-        for ( Map.Entry<Map.Entry<Double, Path>, Path> replaceItem : replaceList.entrySet() ) {
-            population.remove( replaceItem.getKey() );
-            population.put( evaluation.evaluate( replaceItem.getValue() ), replaceItem.getValue() );
-        }
+                Path np = mutate( entry.getValue() );
+                mutated.put( evaluation.quickEvaluate(np),np );
+            } else
+                mutated.put( entry.getKey(), entry.getValue() );
+
+        population = mutated;
     }
 
     public Path mutate( Path path ) {
