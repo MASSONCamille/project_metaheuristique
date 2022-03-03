@@ -1,6 +1,15 @@
 Évaluation des projets
-100 exécutions
-60 secondes
-0 projet
+1 exécution
+5 secondes
+3 projets
 4 problèmes
 
+tsp.projects.exemple.RandomSearch
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\bier127     	526900.1481034458
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\fnl4461     	8091806.628692073
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\gr666       	53310.685856319775
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\surprise1350	866341.5613093247
+
+tsp.projects.hillclimbing.HillClimbing
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\bier127     	126560.61414372452
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\fnl4461     

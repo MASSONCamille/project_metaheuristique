@@ -3,13 +3,14 @@ package tsp.projects.recuit;
 import tsp.evaluation.Evaluation;
 import tsp.evaluation.Path;
 import tsp.projects.CompetitorProject;
+import tsp.projects.DemoProject;
 import tsp.projects.InvalidProjectException;
 
 import java.util.concurrent.ThreadLocalRandom;
 
 import static tsp.projects.Transformations.*;
 
-public class Recuit extends CompetitorProject {
+public class Recuit extends DemoProject {
 
     private double temperature;
     private int attemptedTransforms = 0;

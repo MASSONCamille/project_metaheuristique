@@ -36,7 +36,7 @@ public final class Main extends OutputWriter {
 
     private static final String LOG_FILE = "tsp.log";
     private static final int NB_RUNS = 1;
-    private static final int NB_SECONDS = 1;
+    private static final int NB_SECONDS = 5;
 //    private static final int NB_RUNS = 1;
 //    private static final int NB_SECONDS = 10;
 

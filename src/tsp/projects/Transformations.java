@@ -2,6 +2,8 @@ package tsp.projects;
 
 import tsp.evaluation.Path;
 
+import java.util.Map;
+import java.util.TreeMap;
 import java.util.concurrent.ThreadLocalRandom;
 
 import static java.lang.Math.max;
@@ -58,22 +60,67 @@ public class Transformations {
         return new Path( newpath );
     }
 
-    public static Path Mutate( Path path ) {
-        return path;
-    }
-
-    public static Path[] Crossover( Path p1, Path p2 ) {
+    public static Path[] crossing( Path p1, Path p2 ) {
+        int n = 0;
         Path[] children = new Path[ 2 ];
-        children[0]
         int length = p1.getPath().length;
-        for ( int i = 0 ; i < length ; i++ ) {
-            double rand = Math.random();
-            if ( i < 0.5 )
-                children[ 0 ].getPath()[ i ] = p1.getPath()[ i ];
+        int[] np1 = new int[ length ];
+        int[] np2 = new int[ length ];
+        int[] p2reverse = new int[ length ];
 
+        for ( int a = 0 ; a < length ; a++ ) {
+            p2reverse[ p2.getPath()[ a ] ] = a;
+            n++;
         }
 
+        TreeMap<Integer, Integer> l1 = new TreeMap<>();
+        TreeMap<Integer, Integer> l2 = new TreeMap<>();
+
+        for ( int i = 0 ; i < length ; i++ ) {
+            n++;
+            double rand = Math.random();
+            if ( rand < 0.5 ) {
+//                System.out.println( "fils1" );
+                np1[ i ] = p1.getPath()[ i ];
+                np2[ i ] = -1;
+                l2.put( p2reverse[ np1[ i ] ], np1[ i ] );
+            } else {
+//                System.out.println( "fils2" );
+                np2[ i ] = p1.getPath()[ i ];
+                np1[ i ] = -1;
+                l1.put( p2reverse[ np2[ i ] ], np2[ i ] );
+            }
+        }
+
+        int i = 0;
+        for ( Map.Entry<Integer, Integer> entry : l1.entrySet() ) {
+            while ( i < length ) {
+                n++;
+                if ( np1[ i ] == -1 ) {
+                    np1[ i ] = entry.getValue();
+                    i++;
+                    break;
+                }
+                i++;
+            }
+        }
+
+        i = 0;
+        for ( Map.Entry<Integer, Integer> entry : l2.entrySet() ) {
+            while ( i < length ) {
+                n++;
+                if ( np2[ i ] == -1 ) {
+                    np2[ i ] = entry.getValue();
+                    i++;
+                    break;
+                }
+                i++;
+            }
+        }
+
+//        System.out.println( "n = " + n );
+        children[ 0 ] = new Path( np1 );
+        children[ 1 ] = new Path( np2 );
         return children;
     }
-
 }

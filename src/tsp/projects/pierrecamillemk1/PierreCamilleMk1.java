@@ -4,11 +4,12 @@ import tsp.evaluation.Evaluation;
 import tsp.evaluation.Path;
 import tsp.evaluation.Problem;
 import tsp.projects.CompetitorProject;
+import tsp.projects.DemoProject;
 import tsp.projects.InvalidProjectException;
 
 import java.util.Random;
 
-public class PierreCamilleMk1 extends CompetitorProject {
+public class PierreCamilleMk1 extends DemoProject {
 
     private Path path;
 
