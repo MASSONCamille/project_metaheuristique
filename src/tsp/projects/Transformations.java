@@ -76,4 +76,61 @@ public class Transformations {
         return children;
     }
 
+    public static Path[] CrossoverBrut( Path p1, Path p2 ) {
+        int length = p1.getPath().length;
+        int[] child1 = new int[length] , child2 = new int[length];
+
+        int Nrand = ThreadLocalRandom.current().nextInt( 0, length );
+        int[] listRand = new int[Nrand];
+        for (int i = 0; i < Nrand; i++) {
+            listRand[]
+        }
+
+
+
+        Path[] children = new Path[2];
+        children[0] = new Path(child1);
+        children[1] = new Path(child2);
+        return children;
+    }
+
+    public static Path[] CrossoverCours( Path p1, Path p2 ) {
+        int length = p1.getPath().length;
+        int[] child1 = new int[length] , child2 = new int[length];
+
+        for(int i=0; i<length; i++){
+            int coin = ThreadLocalRandom.current().nextInt( 0, 2 );
+            if(coin == 1){
+                child1[i] = p1.getPath()[i];
+                child2[i] = -1;
+            }else{
+                child1[i] = -1;
+                child2[i] = p1.getPath()[i];
+            }
+        }
+
+        int pos1 = 0, pos2 = 0;
+        for (int town: p2.getPath()) {
+            while(child1[pos1] != -1) pos1++;
+            while(child1[pos2] != -1) pos2++;
+
+            for(int i=0; i<length; i++){
+                if(child1[i] == town){
+                    child2[pos2] = town;
+                    pos2++;
+                    break;
+                }
+                if(child2[i] == town){
+                    child1[pos1] = town;
+                    pos1++;
+                    break;
+                }
+            }
+        }
+
+        Path[] children = new Path[2];
+        children[0] = new Path(child1);
+        children[1] = new Path(child2);
+        return children;
+    }
 }
