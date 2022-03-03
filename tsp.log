@@ -1,30 +1,36 @@
 Évaluation des projets
 1 exécution
-5 secondes
+60 secondes
 3 projets
 4 problèmes
 
 tsp.projects.exemple.RandomSearch
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\bier127     	526900.1481034458
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\fnl4461     	8091806.628692073
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\gr666       	53310.685856319775
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\surprise1350	866341.5613093247
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\bier127     	507542.3085376805
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\fnl4461     	8055948.028854253
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\gr666       	52985.58011003498
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\surprise1350	865497.6734676549
 
 tsp.projects.hillclimbing.HillClimbing
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\bier127     	126560.61414372452
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\fnl4461     	8212244.60187552
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\gr666       	55985.73389599055
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\surprise1350	888022.4769694043
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\bier127     	127993.35865467726
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\fnl4461     	669290.1026470709
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\gr666       	3443.335157848615
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\surprise1350	11104.934914560425
+
+tsp.projects.evolution.Evolution
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\bier127     	127471.41738758177
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\fnl4461     	8037476.74427289
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\gr666       	39814.25304643408
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\surprise1350	852952.7709681221
 
 Projet Hill climbing
 Pierre Henselmann
-Évaluation: 0.0
-
-Projet Exemple
-Alexandre Blansché
-Évaluation: 1099.4727292765483
+Évaluation: 0.10236437269472518
 
 Projet Natürliche Selektion
 Pierre Henselmann
-Évaluation: 1145.3545445278073
+Évaluation: 2434.502560961164
+
+Projet Exemple
+Alexandre Blansché
+Évaluation: 2633.603801513149
 

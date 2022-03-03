@@ -124,23 +124,23 @@ public class Transformations {
         return children;
     }
 
-    public static Path[] CrossoverBrut( Path p1, Path p2 ) {
-        int length = p1.getPath().length;
-        int[] child1 = new int[length] , child2 = new int[length];
-
-        int Nrand = ThreadLocalRandom.current().nextInt( 0, length );
-        int[] listRand = new int[Nrand];
-        for (int i = 0; i < Nrand; i++) {
-            listRand[]
-        }
-
-
-
-        Path[] children = new Path[2];
-        children[0] = new Path(child1);
-        children[1] = new Path(child2);
-        return children;
-    }
+//    public static Path[] CrossoverBrut( Path p1, Path p2 ) {
+//        int length = p1.getPath().length;
+//        int[] child1 = new int[length] , child2 = new int[length];
+//
+//        int Nrand = ThreadLocalRandom.current().nextInt( 0, length );
+//        int[] listRand = new int[Nrand];
+//        for (int i = 0; i < Nrand; i++) {
+//            listRand[]
+//        }
+//
+//
+//
+//        Path[] children = new Path[2];
+//        children[0] = new Path(child1);
+//        children[1] = new Path(child2);
+//        return children;
+//    }
 
     public static Path[] CrossoverCours( Path p1, Path p2 ) {
         int length = p1.getPath().length;

@@ -11,13 +11,12 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.concurrent.ThreadLocalRandom;
 
-import static tsp.projects.Transformations.crossing;
-import static tsp.projects.Transformations.transformSwapSection;
+import static tsp.projects.Transformations.*;
 
 public class Evolution extends CompetitorProject {
 
-    private static int NB_INDIVIDUS = 10;
-    private static double MUTATION_CHANCE = 0.1;
+    private static int NB_INDIVIDUS = 20000;
+    private static double MUTATION_CHANCE = 0.2;
     private TreeMap<Double, Path> population = new TreeMap<>();
 
     public Evolution( Evaluation evaluation ) throws InvalidProjectException {
@@ -30,24 +29,35 @@ public class Evolution extends CompetitorProject {
     public void initialization() {
         for ( int i = 0 ; i < NB_INDIVIDUS ; i++ ) {
             Path path = new Path( problem.getLength() );
-            population.put( evaluation.quickEvaluate( path ), path );
+            population.put( evaluation.evaluate( path ), path );
         }
     }
 
     @Override
     public void loop() {
-        Path p1 = getParent();
-        Path p2 = getParent();
-        Path[] children = crossing( p1, p2 );
-        addChildren( children );
+        reproduction();
         mutatePopulation();
-
-        evaluation.evaluate( population.firstEntry().getValue() );
     }
 
     public void reproduction() {
+        TreeMap<Double, Path> newpop = new TreeMap<>();
 
+        while ( newpop.size() < NB_INDIVIDUS ) {
+            Path p1 = getRandomParent();
+            Path p2;
+            do {
+                p2 = getRandomParent();
+            } while ( p2 == p1 );
+
+            Path[] children = crossing( p1, p2 );
+            //addChildren( children );
+            for ( Path child : children )
+                newpop.put( evaluation.evaluate( child ), child );
+        }
+
+        population = newpop;
     }
+
 
     public double getSumEval() {
         double sum = 0;
@@ -56,16 +66,27 @@ public class Evolution extends CompetitorProject {
         return sum;
     }
 
-    public Path getParent() {
+    public Path getRandomParent() {
+        while ( true )
+            for ( Map.Entry<Double, Path> entry : population.entrySet() )
+                if ( Math.random() < 0.002 )
+                    return entry.getValue();
+    }
+
+    public Path getFitParent() {
         double sumEval = getSumEval();
         double rand = Math.random() * sumEval;
 //        System.out.println( "sumEval = " + sumEval );
 //        System.out.println( "rand = " + rand );
         double weight = 0;
+        int n = 0;
         for ( Map.Entry<Double, Path> entry : population./*descendingMap().*/entrySet() ) {
+            n++;
             weight += 1 / Math.log( entry.getKey() );
-            if ( weight >= rand )
+            if ( weight >= rand ) {
+                //System.out.println( "chose nb " + n + " out of " + population.size() );
                 return /*population.remove( entry )*/entry.getValue();
+            }
         }
         //ne devrais jamais arriver
         System.out.println( "pb dans getParent" );
@@ -74,7 +95,7 @@ public class Evolution extends CompetitorProject {
 
     public void addChildren( Path[] children ) {
         for ( Path child : children )
-            population.put( evaluation.quickEvaluate( child ), child );
+            population.put( evaluation.evaluate( child ), child );
     }
 
     public void mutatePopulation() {
@@ -86,12 +107,12 @@ public class Evolution extends CompetitorProject {
         }
         for ( Map.Entry<Map.Entry<Double, Path>, Path> replaceItem : replaceList.entrySet() ) {
             population.remove( replaceItem.getKey() );
-            population.put( evaluation.quickEvaluate( replaceItem.getValue() ), replaceItem.getValue() );
+            population.put( evaluation.evaluate( replaceItem.getValue() ), replaceItem.getValue() );
         }
     }
 
     public Path mutate( Path path ) {
-        return transformSwapSection( path );
+        return transformSwap( path );
     }
 
 }
