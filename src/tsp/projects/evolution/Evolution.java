@@ -15,8 +15,8 @@ import static tsp.projects.Transformations.*;
 
 public class Evolution extends CompetitorProject {
 
-    private static int NB_INDIVIDUS = 1000;
-    private static double MUTATION_CHANCE = 0.5;
+    private static int NB_INDIVIDUS = 50;
+    private static double MUTATION_CHANCE = 0.1;
     private TreeMap<Double, Path> population = new TreeMap<>();
 
     public Evolution( Evaluation evaluation ) throws InvalidProjectException {
@@ -117,7 +117,7 @@ public class Evolution extends CompetitorProject {
     }
 
     public Path mutate( Path path ) {
-        return transformSwapSection( path );
+        return transformSwap( path );
     }
 
 }

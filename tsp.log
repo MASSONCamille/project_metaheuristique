@@ -1,36 +1,16 @@
 Évaluation des projets
 1 exécution
-3 secondes
+10 secondes
 3 projets
 4 problèmes
 
 tsp.projects.exemple.RandomSearch
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\bier127     	529706.268083415
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\fnl4461     	8100713.573695272
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\gr666       	53016.33526315723
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\surprise1350	873366.193488058
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\bier127     	526404.360267615
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\fnl4461     	8082438.884292081
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\gr666       	53304.554039338975
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\surprise1350	865850.5730163374
 
 tsp.projects.hillclimbing.HillClimbing
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\bier127     	129106.37318491304
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\fnl4461     	2787720.8476559324
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\gr666       	3943.040173275032
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\surprise1350	46978.20425682522
-
-tsp.projects.evolution.Evolution
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\bier127     	422570.363601911
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\fnl4461     	8090023.056123327
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\gr666       	42316.005485292306
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\surprise1350	856105.4459818519
-
-Projet Hill climbing
-Pierre Henselmann
-Évaluation: 0.0
-
-Projet Natürliche Selektion
-Pierre Henselmann
-Évaluation: 778.2585821672977
-
-Projet Exemple
-Alexandre Blansché
-Évaluation: 876.1287719033971
-
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\bier127     	125390.34643808314
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\fnl4461     	1622948.2507802132
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\gr666       
