@@ -15,8 +15,8 @@ import static tsp.projects.Transformations.*;
 
 public class Evolution extends CompetitorProject {
 
-    private static int NB_INDIVIDUS = 20000;
-    private static double MUTATION_CHANCE = 0.2;
+    private static int NB_INDIVIDUS = 1000;
+    private static double MUTATION_CHANCE = 0.1;
     private TreeMap<Double, Path> population = new TreeMap<>();
 
     public Evolution( Evaluation evaluation ) throws InvalidProjectException {
@@ -43,10 +43,10 @@ public class Evolution extends CompetitorProject {
         TreeMap<Double, Path> newpop = new TreeMap<>();
 
         while ( newpop.size() < NB_INDIVIDUS ) {
-            Path p1 = getRandomParent();
+            Path p1 = getFitParent();
             Path p2;
             do {
-                p2 = getRandomParent();
+                p2 = getFitParent();
             } while ( p2 == p1 );
 
             Path[] children = crossing( p1, p2 );
@@ -62,7 +62,7 @@ public class Evolution extends CompetitorProject {
     public double getSumEval() {
         double sum = 0;
         for ( Map.Entry<Double, Path> entry : population.entrySet() )
-            sum += 1 / Math.log( entry.getKey() );
+            sum += 1 / ( entry.getKey() - population.firstEntry().getKey() + 1 );
         return sum;
     }
 
@@ -71,6 +71,10 @@ public class Evolution extends CompetitorProject {
             for ( Map.Entry<Double, Path> entry : population.entrySet() )
                 if ( Math.random() < 0.002 )
                     return entry.getValue();
+    }
+
+    public Path getParentWeightedByOrder() {
+        //...
     }
 
     public Path getFitParent() {
@@ -82,7 +86,7 @@ public class Evolution extends CompetitorProject {
         int n = 0;
         for ( Map.Entry<Double, Path> entry : population./*descendingMap().*/entrySet() ) {
             n++;
-            weight += 1 / Math.log( entry.getKey() );
+            weight += 1 / ( entry.getKey() - population.firstEntry().getKey() + 1 );
             if ( weight >= rand ) {
                 //System.out.println( "chose nb " + n + " out of " + population.size() );
                 return /*population.remove( entry )*/entry.getValue();
@@ -112,7 +116,7 @@ public class Evolution extends CompetitorProject {
     }
 
     public Path mutate( Path path ) {
-        return transformSwap( path );
+        return transformSwapSection( path );
     }
 
 }

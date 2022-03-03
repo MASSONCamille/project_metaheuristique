@@ -1,36 +1,36 @@
 Évaluation des projets
 1 exécution
-60 secondes
+3 secondes
 3 projets
 4 problèmes
 
 tsp.projects.exemple.RandomSearch
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\bier127     	507542.3085376805
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\fnl4461     	8055948.028854253
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\gr666       	52985.58011003498
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\surprise1350	865497.6734676549
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\bier127     	518066.58512185904
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\fnl4461     	8074921.161912075
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\gr666       	53773.11255551523
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\surprise1350	868930.9554098077
 
 tsp.projects.hillclimbing.HillClimbing
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\bier127     	127993.35865467726
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\fnl4461     	669290.1026470709
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\gr666       	3443.335157848615
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\surprise1350	11104.934914560425
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\bier127     	127861.65142470447
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\fnl4461     	2821149.667228074
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\gr666       	3916.3387545468586
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\surprise1350	44758.656678639374
 
 tsp.projects.evolution.Evolution
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\bier127     	127471.41738758177
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\fnl4461     	8037476.74427289
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\gr666       	39814.25304643408
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\surprise1350	852952.7709681221
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\bier127     	453171.76974738616
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\fnl4461     	8059009.239250835
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\gr666       	42765.16389711445
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\surprise1350	846051.1686296494
 
 Projet Hill climbing
 Pierre Henselmann
-Évaluation: 0.10236437269472518
+Évaluation: 0.0
 
 Projet Natürliche Selektion
 Pierre Henselmann
-Évaluation: 2434.502560961164
+Évaluation: 805.5767388680375
 
 Projet Exemple
 Alexandre Blansché
-Évaluation: 2633.603801513149
+Évaluation: 901.4551443113922
 
