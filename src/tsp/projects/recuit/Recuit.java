@@ -10,14 +10,14 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import static tsp.projects.Transformations.*;
 
-public class Recuit extends DemoProject {
+public class Recuit extends CompetitorProject {
 
     private double temperature;
     private int attemptedTransforms = 0;
     private int acceptedTransforms = 0;
     private static double lambda = 0.99;
     private Path path;
-    private double p0 = 0.9;
+    private double p0 = 0.4;
 
     public Recuit( Evaluation evaluation ) throws InvalidProjectException {
         super( evaluation );
@@ -72,7 +72,9 @@ public class Recuit extends DemoProject {
 
     public void updateTemperature() {
         temperature *= lambda;
+
 //        System.out.println( "temperature : " + temperature );
+
 //        if ( attemptedTransforms >= 100 || acceptedTransforms >= 12 ) {
 //            temperature *= lambda;
 //            if ( acceptedTransforms >= 100 ) attemptedTransforms = 0;

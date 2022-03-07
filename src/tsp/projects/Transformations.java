@@ -2,6 +2,8 @@ package tsp.projects;
 
 import tsp.evaluation.Path;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.concurrent.ThreadLocalRandom;
@@ -58,6 +60,47 @@ public class Transformations {
             newpath[ min( rand1, rand2 ) + i ] = tmp;
         }
         return new Path( newpath );
+    }
+
+    public static Path[] simpleCrossover( Path p1, Path p2, int nbChildren ) {
+        Path[] children = new Path[ nbChildren ];
+        for ( int i = 0 ; i < nbChildren ; i++ )
+            children[ i ] = new Path( new int[ p1.getPath().length ] );
+
+        int[] path1 = p1.getPath();
+        int[] path2 = p2.getPath();
+        ArrayList<Integer> unused = new ArrayList<>();
+        for ( int i = 0 ; i < path1.length ; i++ ) {
+            if ( path1[ i ] == path2[ i ] )
+                for ( int j = 0 ; j < nbChildren ; j++ )
+                    children[ j ].getPath()[ i ] = path1[ i ];
+            else {
+                for ( int j = 0 ; j < nbChildren ; j++ )
+                    children[ j ].getPath()[ i ] = -1;
+                unused.add( path1[ i ] );
+            }
+        }
+
+        for ( int i = 0 ; i < nbChildren ; i++ ) {
+            Collections.shuffle( unused );
+            int j = 0;
+            for ( Integer value : unused ) {
+                while ( j < path1.length ) {
+                    if ( children[ i ].getPath()[ j ] == -1 ) {
+                        children[ i ].getPath()[ j ] = value;
+                        j++;
+                        break;
+                    }
+                    j++;
+                }
+            }
+        }
+
+//        for ( int i = 0 ; i < nbChildren ; i++ ) {
+//
+//        }
+
+        return children;
     }
 
     public static Path[] crossing( Path p1, Path p2 ) {
@@ -144,41 +187,41 @@ public class Transformations {
 
     public static Path[] CrossoverCours( Path p1, Path p2 ) {
         int length = p1.getPath().length;
-        int[] child1 = new int[length] , child2 = new int[length];
+        int[] child1 = new int[ length ], child2 = new int[ length ];
 
-        for(int i=0; i<length; i++){
+        for ( int i = 0 ; i < length ; i++ ) {
             int coin = ThreadLocalRandom.current().nextInt( 0, 2 );
-            if(coin == 1){
-                child1[i] = p1.getPath()[i];
-                child2[i] = -1;
-            }else{
-                child1[i] = -1;
-                child2[i] = p1.getPath()[i];
+            if ( coin == 1 ) {
+                child1[ i ] = p1.getPath()[ i ];
+                child2[ i ] = -1;
+            } else {
+                child1[ i ] = -1;
+                child2[ i ] = p1.getPath()[ i ];
             }
         }
 
         int pos1 = 0, pos2 = 0;
-        for (int town: p2.getPath()) {
-            while(child1[pos1] != -1) pos1++;
-            while(child1[pos2] != -1) pos2++;
+        for ( int town : p2.getPath() ) {
+            while ( child1[ pos1 ] != -1 ) pos1++;
+            while ( child1[ pos2 ] != -1 ) pos2++;
 
-            for(int i=0; i<length; i++){
-                if(child1[i] == town){
-                    child2[pos2] = town;
+            for ( int i = 0 ; i < length ; i++ ) {
+                if ( child1[ i ] == town ) {
+                    child2[ pos2 ] = town;
                     pos2++;
                     break;
                 }
-                if(child2[i] == town){
-                    child1[pos1] = town;
+                if ( child2[ i ] == town ) {
+                    child1[ pos1 ] = town;
                     pos1++;
                     break;
                 }
             }
         }
 
-        Path[] children = new Path[2];
-        children[0] = new Path(child1);
-        children[1] = new Path(child2);
+        Path[] children = new Path[ 2 ];
+        children[ 0 ] = new Path( child1 );
+        children[ 1 ] = new Path( child2 );
         return children;
     }
 }
