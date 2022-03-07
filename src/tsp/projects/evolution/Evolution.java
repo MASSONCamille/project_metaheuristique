@@ -12,8 +12,8 @@ import static tsp.projects.Transformations.*;
 
 public class Evolution extends CompetitorProject {
 
-    private static int NB_INDIVIDUS = 50;
-    private static double MUTATION_CHANCE = 0.02;
+    private static int NB_INDIVIDUS = 100;
+    private static double MUTATION_CHANCE = 0.01;
     private TreeMap<Double, Path> population = new TreeMap<>();
     private ArrayList<Path> alpop = new ArrayList<>();
     private int nbGen = 0;
@@ -39,27 +39,41 @@ public class Evolution extends CompetitorProject {
 //        System.out.println( "génération n°" + ++nbGen );
         mutatePopulation();
         evaluation.evaluate( population.firstEntry().getValue() );
+        alpop = populationAsArrayList();
     }
 
     public void reproduce() {
-        TreeMap<Double, Path> newpop = new TreeMap<>();
+        TreeMap<Double, Path> childpop = new TreeMap<>();
 
-        while ( newpop.size() < NB_INDIVIDUS ) {
-            Path p1 = getFitParent();
+        while ( childpop.size() < NB_INDIVIDUS ) {
+            Path p1 = getParentTournament();
             Path p2;
             do {
-                p2 = getFitParent();
+                p2 = getParentTournament();
 //                if ( p2 == p1 ) System.out.println( "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH" );
             } while ( p2 == p1 );
 
             Path[] children = crossing( p1, p2 );
 //            Path[] children = simpleCrossover( p1, p2, 2 );
             for ( Path child : children )
-                newpop.put( evaluation.quickEvaluate( child ), child );
+                childpop.put( evaluation.quickEvaluate( child ), child );
         }
+        TreeMap<Double, Path> newpop = new TreeMap<>();
+        Iterator popit = population.entrySet().iterator();
+        Iterator childit = childpop.entrySet().iterator();
+        Map.Entry epop = (Map.Entry)popit.next();
+        Map.Entry echild = (Map.Entry)childit.next();
 
+        while (newpop.size() < NB_INDIVIDUS){
+            if ( ((Double) epop.getKey()) > ((Double) echild.getKey()) ) {
+                newpop.put( (Double)echild.getKey() , (Path)echild.getValue());
+                echild = (Map.Entry)childit.next();
+            }else{
+                newpop.put( (Double)epop.getKey() , (Path)epop.getValue());
+                epop = (Map.Entry)popit.next();
+            }
+        }
         population = newpop;
-        alpop = populationAsArrayList();
     }
 
 
@@ -106,6 +120,8 @@ public class Evolution extends CompetitorProject {
     public Path getFitParent() {
         double sumEval = getSumEval();
         double rand = Math.random() * sumEval;
+//        System.out.println( "sumEval = " + sumEval );
+//        System.out.println( "rand = " + rand );
         double weight = 0;
         int n = 0;
         for ( Map.Entry<Double, Path> entry : population.entrySet() ) {
@@ -130,7 +146,6 @@ public class Evolution extends CompetitorProject {
                 mutated.put( entry.getKey(), entry.getValue() );
 
         population = mutated;
-        alpop = populationAsArrayList();
     }
 
     public Path mutate( Path path ) {
