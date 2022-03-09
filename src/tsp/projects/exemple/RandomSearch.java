@@ -10,7 +10,7 @@ import tsp.projects.DemoProject;
  * @author Alexandre Blansché
  * Recherche aléatoire
  */
-public class RandomSearch extends CompetitorProject {
+public class RandomSearch extends DemoProject {
     private int length;
 
     /**

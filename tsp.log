@@ -1,28 +1,26 @@
 Évaluation des projets
-1 exécution
-5 secondes
-4 projets
+4 exécutions
+60 secondes
+2 projets
 4 problèmes
 
-tsp.projects.exemple.RandomSearch
-C:\Users\killc\Documents\mh_project\data\bier127     	519820.86592429003
-C:\Users\killc\Documents\mh_project\data\fnl4461     	8111581.073511973
-C:\Users\killc\Documents\mh_project\data\gr666       	53791.23786315648
-C:\Users\killc\Documents\mh_project\data\surprise1350	876448.9972870023
-
-tsp.projects.recuit.Recuit
-C:\Users\killc\Documents\mh_project\data\bier127     	135327.15926607183
-C:\Users\killc\Documents\mh_project\data\fnl4461     	4523842.43783031
-C:\Users\killc\Documents\mh_project\data\gr666       	5573.753091813252
-C:\Users\killc\Documents\mh_project\data\surprise1350	100234.77114404674
-
-tsp.projects.hillclimbing.HillClimbing
-C:\Users\killc\Documents\mh_project\data\bier127     	128710.28083982193
-C:\Users\killc\Documents\mh_project\data\fnl4461     	4035052.411061028
-C:\Users\killc\Documents\mh_project\data\gr666       	4988.57514790671
-C:\Users\killc\Documents\mh_project\data\surprise1350	77703.92162727138
+tsp.projects.evolution.Evolution2
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\bier127     	172523.63721446
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\fnl4461     	6259773.260102164
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\gr666       	14768.713165532528
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\surprise1350	339644.5244504391
 
 tsp.projects.evolution.Evolution
-C:\Users\killc\Documents\mh_project\data\bier127     	410600.08643588325
-C:\Users\killc\Documents\mh_project\data\fnl4461     	8063208.082539768
-C:\Users\killc\Documents\mh_project\data\gr666       
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\bier127     	174378.6404070142
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\fnl4461     	6212809.433048619
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\gr666       	14822.10912864501
+C:\Users\pierr\IdeaProjects\project_metaheuristique\data\surprise1350	337916.98448830965
+
+Projet 自然な選択
+Pierre Henselmann
+Évaluation: 0.3167878460347398
+
+Projet Natürliche Selektion
+Pierre Henselmann
+Évaluation: 0.35919116831187564
+

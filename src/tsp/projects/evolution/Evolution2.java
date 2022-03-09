@@ -10,22 +10,23 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import static tsp.projects.Transformations.*;
 
-public class Evolution extends CompetitorProject {
+public class Evolution2 extends CompetitorProject {
 
-    private static int NB_INDIVIDUS = 175;
+    private static int NB_INDIVIDUS = 200;
     private static double MUTATION_CHANCE = 0.1;
     private TreeMap<Double, Path> population = new TreeMap<>();
     private ArrayList<Path> alpop = new ArrayList<>();
     private int nbGen = 0;
 
-    public Evolution( Evaluation evaluation ) throws InvalidProjectException {
+    public Evolution2( Evaluation evaluation ) throws InvalidProjectException {
         super( evaluation );
         addAuthor( "Pierre Henselmann" );
-        setMethodName( "Natürliche Selektion" );
+        setMethodName( "自然な選択" );
     }
 
     @Override
     public void initialization() {
+//        NB_INDIVIDUS = 100;
         for ( int i = 0 ; i < NB_INDIVIDUS ; i++ ) {
             Path path = new Path( problem.getLength() );
             population.put( evaluation.quickEvaluate( path ), path );
@@ -107,7 +108,7 @@ public class Evolution extends CompetitorProject {
     public Path getParentTournament() {
         ArrayList<Path> candidates = new ArrayList<>();
         Collections.shuffle( alpop );
-        for ( int i = 0 ; i < NB_INDIVIDUS * 0.1 ; i++ )
+        for ( int i = 0 ; i < NB_INDIVIDUS * 0.25 ; i++ )
             candidates.add( alpop.get( i ) );
 
         Double min = Double.MAX_VALUE;

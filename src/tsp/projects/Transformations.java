@@ -2,10 +2,7 @@ package tsp.projects;
 
 import tsp.evaluation.Path;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 import static java.lang.Math.max;
@@ -39,9 +36,13 @@ public class Transformations {
     public static Path transformSwapSection( Path path ) {
         int rand1 = ThreadLocalRandom.current().nextInt( 0, path.getPath().length );
         int rand2 = ThreadLocalRandom.current().nextInt( 0, path.getPath().length );
-        int sectionLength = Math.abs( rand1 - rand2 );
-        int min = min( rand1, rand2 );
-        int max = max( rand1, rand2 );
+        return swapSection( path, rand1, rand2 );
+    }
+
+    public static Path swapSection( Path path, int a, int b ) {
+        int sectionLength = Math.abs( a - b );
+        int min = min( a, b );
+        int max = max( a, b );
         int[] newpath = path.getPath().clone();
 
         for ( int i = 0 ; i <= sectionLength ; i++ )
@@ -103,24 +104,28 @@ public class Transformations {
         return children;
     }
 
+    public static Path[] orderedCrossover( Path p1, Path p2 ) {
+        int length = p1.getPath().length;
+        int[] addressList = new int[ length ];
+        for ( int i = 0 ; i < length ; i++ )
+            addressList[ p2.getPath()[ i ] ] = i;
+        return null;
+    }
+
     public static Path[] crossing( Path p1, Path p2 ) {
-        int n = 0;
         Path[] children = new Path[ 2 ];
         int length = p1.getPath().length;
         int[] np1 = new int[ length ];
         int[] np2 = new int[ length ];
         int[] p2reverse = new int[ length ];
 
-        for ( int a = 0 ; a < length ; a++ ) {
+        for ( int a = 0 ; a < length ; a++ )
             p2reverse[ p2.getPath()[ a ] ] = a;
-            n++;
-        }
 
         TreeMap<Integer, Integer> l1 = new TreeMap<>();
         TreeMap<Integer, Integer> l2 = new TreeMap<>();
 
         for ( int i = 0 ; i < length ; i++ ) {
-            n++;
             double rand = Math.random();
             if ( rand < 0.5 ) {
 //                System.out.println( "fils1" );
@@ -138,7 +143,6 @@ public class Transformations {
         int i = 0;
         for ( Map.Entry<Integer, Integer> entry : l1.entrySet() ) {
             while ( i < length ) {
-                n++;
                 if ( np1[ i ] == -1 ) {
                     np1[ i ] = entry.getValue();
                     i++;
@@ -151,7 +155,6 @@ public class Transformations {
         i = 0;
         for ( Map.Entry<Integer, Integer> entry : l2.entrySet() ) {
             while ( i < length ) {
-                n++;
                 if ( np2[ i ] == -1 ) {
                     np2[ i ] = entry.getValue();
                     i++;
@@ -161,7 +164,6 @@ public class Transformations {
             }
         }
 
-//        System.out.println( "n = " + n );
         children[ 0 ] = new Path( np1 );
         children[ 1 ] = new Path( np2 );
         return children;

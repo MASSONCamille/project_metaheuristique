@@ -10,7 +10,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import static tsp.projects.Transformations.*;
 
-public class Recuit extends CompetitorProject {
+public class Recuit extends DemoProject {
 
     private double temperature;
     private int attemptedTransforms = 0;
@@ -71,15 +71,15 @@ public class Recuit extends CompetitorProject {
     }
 
     public void updateTemperature() {
-        temperature *= lambda;
+//        temperature *= lambda;
 
 //        System.out.println( "temperature : " + temperature );
 
-//        if ( attemptedTransforms >= 100 || acceptedTransforms >= 12 ) {
-//            temperature *= lambda;
-//            if ( acceptedTransforms >= 100 ) attemptedTransforms = 0;
-//            if ( acceptedTransforms >= 12 ) acceptedTransforms = 0;
-//        }
+        if ( attemptedTransforms >= 100 || acceptedTransforms >= 12 ) {
+            temperature *= lambda;
+            if ( acceptedTransforms >= 100 ) attemptedTransforms = 0;
+            if ( acceptedTransforms >= 12 ) acceptedTransforms = 0;
+        }
     }
 
     public double energyDelta( Path p ) {
