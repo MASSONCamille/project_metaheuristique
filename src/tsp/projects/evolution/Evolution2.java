@@ -12,7 +12,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import static tsp.projects.Transformations.*;
 
-public class Evolution2 extends CompetitorProject {
+public class Evolution2 extends DemoProject {
 
     private static int NB_INDIVIDUS = 100;
     private static double MUTATION_CHANCE = 0.05;
@@ -54,11 +54,9 @@ public class Evolution2 extends CompetitorProject {
             Path p2;
             do {
                 p2 = getFitParent();
-//                if ( p2 == p1 ) System.out.println( "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH" );
             } while ( p2 == p1 );
 
             Path[] children = crossing( p1, p2 );
-//            Path[] children = simpleCrossover( p1, p2, 2 );
             for ( Path child : children )
                 childpop.put( evaluation.quickEvaluate( child ), child );
         }
@@ -129,8 +127,6 @@ public class Evolution2 extends CompetitorProject {
     public Path getFitParent() {
         double sumEval = getSumEval();
         double rand = Math.random() * sumEval;
-//        System.out.println( "sumEval = " + sumEval );
-//        System.out.println( "rand = " + rand );
         double weight = 0;
         int n = 0;
         for ( Map.Entry<Double, Path> entry : population.entrySet() ) {

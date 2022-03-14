@@ -3,6 +3,8 @@ package tsp.projects.evolution;
 import tsp.evaluation.Evaluation;
 import tsp.evaluation.Path;
 
+import java.util.Objects;
+
 public class Individu implements Comparable<Individu>{
     private Path path;
     private Double distance;
@@ -62,4 +64,14 @@ public class Individu implements Comparable<Individu>{
     public int compareTo(Individu o) {
         return (int)Math.round(this.getDistance() - o.getDistance());
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Individu individu = (Individu) o;
+
+        return Objects.equals(distance, individu.distance);
+    }
+
 }

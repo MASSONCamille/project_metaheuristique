@@ -11,7 +11,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import static tsp.projects.Transformations.*;
 
-public class Evolution extends CompetitorProject {
+public class Evolution extends DemoProject {
 
     private static int NB_INDIVIDUS = 100;
     private static double MUTATION_CHANCE = 0.05;
@@ -37,7 +37,6 @@ public class Evolution extends CompetitorProject {
     @Override
     public void loop() {
         reproduce();
-//        System.out.println( "génération n°" + ++nbGen );
         mutatePopulation();
         evaluation.evaluate( population.firstEntry().getValue() );
         alpop = populationAsArrayList();
@@ -51,11 +50,9 @@ public class Evolution extends CompetitorProject {
             Path p2;
             do {
                 p2 = getFitParent();
-//                if ( p2 == p1 ) System.out.println( "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH" );
             } while ( p2 == p1 );
 
             Path[] children = crossing( p1, p2 );
-//            Path[] children = simpleCrossover( p1, p2, 2 );
             for ( Path child : children )
                 childpop.put( evaluation.quickEvaluate( child ), child );
         }

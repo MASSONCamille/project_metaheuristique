@@ -12,7 +12,7 @@ import java.util.*;
 
 import static tsp.projects.Transformations.transformSwapSection;
 
-public class GrimperColine extends DemoProject {
+public class GrimperColine extends CompetitorProject {
 
     public GrimperColine(Evaluation evaluation) throws InvalidProjectException {
         super(evaluation);
@@ -21,13 +21,11 @@ public class GrimperColine extends DemoProject {
     }
 
     @Override
-    public void initialization() {
-        Path path = HillClimbing();
-    }
+    public void initialization() {}
 
     @Override
     public void loop() {
-
+        evaluation.evaluate(HillClimbing());
     }
 
 

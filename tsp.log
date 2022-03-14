@@ -1,36 +1,26 @@
 Évaluation des projets
-1 exécution
-10 secondes
-3 projets
+4 exécutions
+60 secondes
+2 projets
 4 problèmes
 
 tsp.projects.hillclimbing.HillClimbing
-C:\Users\killc\Documents\mh_project\data\bier127     	131335.20037473203
-C:\Users\killc\Documents\mh_project\data\fnl4461     	3015061.281424421
-C:\Users\killc\Documents\mh_project\data\gr666       	3908.0700527785675
-C:\Users\killc\Documents\mh_project\data\surprise1350	51309.49543278586
+C:\Users\Utilisateur\IdeaProjects\project_metaheuristique\data\bier127     	131661.69266633113
+C:\Users\Utilisateur\IdeaProjects\project_metaheuristique\data\fnl4461     	712879.8557044957
+C:\Users\Utilisateur\IdeaProjects\project_metaheuristique\data\gr666       	3494.4499410007343
+C:\Users\Utilisateur\IdeaProjects\project_metaheuristique\data\surprise1350	11436.417968451848
 
-tsp.projects.evolution.Evolution2
-C:\Users\killc\Documents\mh_project\data\bier127     	140156.44099205322
-C:\Users\killc\Documents\mh_project\data\fnl4461     	1.7976931348623157E308
-C:\Users\killc\Documents\mh_project\data\gr666       	4234.243170149884
-C:\Users\killc\Documents\mh_project\data\surprise1350	11899.069356255523
+tsp.projects.hillclimbing.GrimperColine
+C:\Users\Utilisateur\IdeaProjects\project_metaheuristique\data\bier127     	133970.64577239772
+C:\Users\Utilisateur\IdeaProjects\project_metaheuristique\data\fnl4461     	219953.31425022412
+C:\Users\Utilisateur\IdeaProjects\project_metaheuristique\data\gr666       	3836.058663685712
+C:\Users\Utilisateur\IdeaProjects\project_metaheuristique\data\surprise1350	10935.570835059963
 
-tsp.projects.evolution.Evolution
-C:\Users\killc\Documents\mh_project\data\bier127     	243182.06313315814
-C:\Users\killc\Documents\mh_project\data\fnl4461     	7707281.562845002
-C:\Users\killc\Documents\mh_project\data\gr666       	32877.99391510944
-C:\Users\killc\Documents\mh_project\data\surprise1350	662781.7119010739
+Projet Grimper Coline
+Camille Masson
+Évaluation: 2.882363113165339
 
 Projet Hill climbing
 Pierre Henselmann
-Évaluation: 82.80148828574495
-
-Projet Natürliche Selektion
-Pierre Henselmann
-Évaluation: 1613.0254735212675
-
-Projet 自然な選択
-Pierre Henselmann
-Évaluation: Infinity
+Évaluation: 57.17126433353794
 
