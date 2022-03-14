@@ -1,8 +1,10 @@
 package tsp.projects.evolution;
 
+import tsp.evaluation.Coordinates;
 import tsp.evaluation.Evaluation;
 import tsp.evaluation.Path;
 import tsp.projects.CompetitorProject;
+import tsp.projects.DemoProject;
 import tsp.projects.InvalidProjectException;
 
 import java.util.*;
@@ -12,8 +14,8 @@ import static tsp.projects.Transformations.*;
 
 public class Evolution2 extends CompetitorProject {
 
-    private static int NB_INDIVIDUS = 200;
-    private static double MUTATION_CHANCE = 0.1;
+    private static int NB_INDIVIDUS = 100;
+    private static double MUTATION_CHANCE = 0.05;
     private TreeMap<Double, Path> population = new TreeMap<>();
     private ArrayList<Path> alpop = new ArrayList<>();
     private int nbGen = 0;
@@ -26,9 +28,11 @@ public class Evolution2 extends CompetitorProject {
 
     @Override
     public void initialization() {
-//        NB_INDIVIDUS = 100;
-        for ( int i = 0 ; i < NB_INDIVIDUS ; i++ ) {
-            Path path = new Path( problem.getLength() );
+        Path path0 = HillClimbing();
+        population.put( evaluation.quickEvaluate( path0 ), path0 );
+
+        for ( int i = 1 ; i < NB_INDIVIDUS ; i++ ) {
+            Path path = new Path(problem.getLength());
             population.put( evaluation.quickEvaluate( path ), path );
         }
         alpop = populationAsArrayList();
@@ -37,7 +41,6 @@ public class Evolution2 extends CompetitorProject {
     @Override
     public void loop() {
         reproduce();
-//        System.out.println( "génération n°" + ++nbGen );
         mutatePopulation();
         evaluation.evaluate( population.firstEntry().getValue() );
         alpop = populationAsArrayList();
@@ -158,4 +161,53 @@ public class Evolution2 extends CompetitorProject {
         return transformSwap( path );
     }
 
+
+
+    /* ------------------------------------------------------------------------------------------ */
+
+
+    public Path HillClimbing() {
+        int cpt = 0;
+        int index;
+        int distance = 0;
+
+        Coordinates pointActuel;
+        List<Integer> pasVu;
+        int [] path = new int[problem.getLength()];
+        pasVu = new ArrayList<>();
+
+        Random random = new Random();
+        int j = random.nextInt (problem.getLength());
+        pointActuel = this.problem.getCoordinates(j);
+        path[0] = j;
+
+        for (int i = 0; i < problem.getLength(); i++) {
+            if (i != j) {
+                pasVu.add(i);
+            }
+        }
+
+        int minVoisinDistance;
+        int minVoisinIndex;
+
+        while (pasVu.size() != 0) {
+            cpt++;
+            minVoisinIndex = pasVu.get(0);
+            minVoisinDistance = (int) pointActuel.distance(this.problem.getCoordinates(pasVu.get(0)));
+            index = 0;
+            for (int i = 1; i < pasVu.size(); i++) {
+                if (minVoisinDistance > pointActuel.distance(this.problem.getCoordinates(pasVu.get(i)))) {
+                    minVoisinDistance = (int) pointActuel.distance(this.problem.getCoordinates(pasVu.get(i)));
+                    minVoisinIndex = pasVu.get(i);
+                    index = i;
+                }
+            }
+            distance += minVoisinDistance;
+            path[cpt] = minVoisinIndex;
+            pointActuel = this.problem.getCoordinates(minVoisinIndex);
+            pasVu.remove(index);
+        }
+        Path pathFin = new Path(path);
+        return pathFin;
+    }
 }

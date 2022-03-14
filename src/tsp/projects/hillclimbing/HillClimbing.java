@@ -9,7 +9,7 @@ import tsp.projects.Transformations;
 
 import static tsp.projects.Transformations.*;
 
-public class HillClimbing extends DemoProject {
+public class HillClimbing extends CompetitorProject {
 
     private Path path;
 

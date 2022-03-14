@@ -1,26 +1,36 @@
 Évaluation des projets
-4 exécutions
-60 secondes
-2 projets
+1 exécution
+10 secondes
+3 projets
 4 problèmes
 
+tsp.projects.hillclimbing.HillClimbing
+C:\Users\killc\Documents\mh_project\data\bier127     	131335.20037473203
+C:\Users\killc\Documents\mh_project\data\fnl4461     	3015061.281424421
+C:\Users\killc\Documents\mh_project\data\gr666       	3908.0700527785675
+C:\Users\killc\Documents\mh_project\data\surprise1350	51309.49543278586
+
 tsp.projects.evolution.Evolution2
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\bier127     	172523.63721446
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\fnl4461     	6259773.260102164
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\gr666       	14768.713165532528
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\surprise1350	339644.5244504391
+C:\Users\killc\Documents\mh_project\data\bier127     	140156.44099205322
+C:\Users\killc\Documents\mh_project\data\fnl4461     	1.7976931348623157E308
+C:\Users\killc\Documents\mh_project\data\gr666       	4234.243170149884
+C:\Users\killc\Documents\mh_project\data\surprise1350	11899.069356255523
 
 tsp.projects.evolution.Evolution
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\bier127     	174378.6404070142
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\fnl4461     	6212809.433048619
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\gr666       	14822.10912864501
-C:\Users\pierr\IdeaProjects\project_metaheuristique\data\surprise1350	337916.98448830965
+C:\Users\killc\Documents\mh_project\data\bier127     	243182.06313315814
+C:\Users\killc\Documents\mh_project\data\fnl4461     	7707281.562845002
+C:\Users\killc\Documents\mh_project\data\gr666       	32877.99391510944
+C:\Users\killc\Documents\mh_project\data\surprise1350	662781.7119010739
 
-Projet 自然な選択
+Projet Hill climbing
 Pierre Henselmann
-Évaluation: 0.3167878460347398
+Évaluation: 82.80148828574495
 
 Projet Natürliche Selektion
 Pierre Henselmann
-Évaluation: 0.35919116831187564
+Évaluation: 1613.0254735212675
+
+Projet 自然な選択
+Pierre Henselmann
+Évaluation: Infinity
 

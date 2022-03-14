@@ -3,6 +3,7 @@ package tsp.projects.evolution;
 import tsp.evaluation.Evaluation;
 import tsp.evaluation.Path;
 import tsp.projects.CompetitorProject;
+import tsp.projects.DemoProject;
 import tsp.projects.InvalidProjectException;
 
 import java.util.*;
@@ -12,8 +13,8 @@ import static tsp.projects.Transformations.*;
 
 public class Evolution extends CompetitorProject {
 
-    private static int NB_INDIVIDUS = 175;
-    private static double MUTATION_CHANCE = 0.1;
+    private static int NB_INDIVIDUS = 100;
+    private static double MUTATION_CHANCE = 0.05;
     private TreeMap<Double, Path> population = new TreeMap<>();
     private ArrayList<Path> alpop = new ArrayList<>();
     private int nbGen = 0;
