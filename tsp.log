@@ -1,26 +1,26 @@
 Évaluation des projets
-4 exécutions
+1 exécution
 60 secondes
 2 projets
 4 problèmes
 
-tsp.projects.hillclimbing.HillClimbing
-C:\Users\Utilisateur\IdeaProjects\project_metaheuristique\data\bier127     	131661.69266633113
-C:\Users\Utilisateur\IdeaProjects\project_metaheuristique\data\fnl4461     	712879.8557044957
-C:\Users\Utilisateur\IdeaProjects\project_metaheuristique\data\gr666       	3494.4499410007343
-C:\Users\Utilisateur\IdeaProjects\project_metaheuristique\data\surprise1350	11436.417968451848
+tsp.projects.evolution.Evolution2
+C:\Users\Utilisateur\IdeaProjects\project_metaheuristique\data\bier127     	124811.33135690927
+C:\Users\Utilisateur\IdeaProjects\project_metaheuristique\data\fnl4461     	223127.6086547418
+C:\Users\Utilisateur\IdeaProjects\project_metaheuristique\data\gr666       	3931.2099351101847
+C:\Users\Utilisateur\IdeaProjects\project_metaheuristique\data\surprise1350	10969.81360953295
 
-tsp.projects.hillclimbing.GrimperColine
-C:\Users\Utilisateur\IdeaProjects\project_metaheuristique\data\bier127     	133970.64577239772
-C:\Users\Utilisateur\IdeaProjects\project_metaheuristique\data\fnl4461     	219953.31425022412
-C:\Users\Utilisateur\IdeaProjects\project_metaheuristique\data\gr666       	3836.058663685712
-C:\Users\Utilisateur\IdeaProjects\project_metaheuristique\data\surprise1350	10935.570835059963
+tsp.projects.evolution.Evolution
+C:\Users\Utilisateur\IdeaProjects\project_metaheuristique\data\bier127     	174728.8600348396
+C:\Users\Utilisateur\IdeaProjects\project_metaheuristique\data\fnl4461     	6445690.876437466
+C:\Users\Utilisateur\IdeaProjects\project_metaheuristique\data\gr666       	17462.91387002881
+C:\Users\Utilisateur\IdeaProjects\project_metaheuristique\data\surprise1350	420185.4170491623
 
-Projet Grimper Coline
-Camille Masson
-Évaluation: 2.882363113165339
-
-Projet Hill climbing
+Projet 自然な選択
 Pierre Henselmann
-Évaluation: 57.17126433353794
+Évaluation: 0.0
+
+Projet Natürliche Selektion
+Pierre Henselmann
+Évaluation: 1725.844167422486
 

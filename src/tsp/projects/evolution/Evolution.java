@@ -11,7 +11,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import static tsp.projects.Transformations.*;
 
-public class Evolution extends DemoProject {
+public class Evolution extends CompetitorProject {
 
     private static int NB_INDIVIDUS = 100;
     private static double MUTATION_CHANCE = 0.05;

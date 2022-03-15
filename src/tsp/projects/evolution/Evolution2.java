@@ -12,7 +12,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import static tsp.projects.Transformations.*;
 
-public class Evolution2 extends DemoProject {
+public class Evolution2 extends CompetitorProject {
 
     private static int NB_INDIVIDUS = 100;
     private static double MUTATION_CHANCE = 0.05;
@@ -28,11 +28,9 @@ public class Evolution2 extends DemoProject {
 
     @Override
     public void initialization() {
-        Path path0 = HillClimbing();
-        population.put( evaluation.quickEvaluate( path0 ), path0 );
-
-        for ( int i = 1 ; i < NB_INDIVIDUS ; i++ ) {
-            Path path = new Path(problem.getLength());
+        population = new TreeMap<>();
+        for ( int i = 0 ; i < NB_INDIVIDUS ; i++ ) {
+            Path path = HillClimbing();
             population.put( evaluation.quickEvaluate( path ), path );
         }
         alpop = populationAsArrayList();
@@ -60,27 +58,30 @@ public class Evolution2 extends DemoProject {
             for ( Path child : children )
                 childpop.put( evaluation.quickEvaluate( child ), child );
         }
-//        population.putAll( childpop );
-//        while ( population.size() > NB_INDIVIDUS )
-//            population.pollLastEntry();
 
 
-        TreeMap<Double, Path> newpop = new TreeMap<>();
-        Iterator popit = population.entrySet().iterator();
-        Iterator childit = childpop.entrySet().iterator();
-        Map.Entry epop = ( Map.Entry ) popit.next();
-        Map.Entry echild = ( Map.Entry ) childit.next();
+        population.putAll( childpop );
+        while ( population.size() > NB_INDIVIDUS )
+            population.pollLastEntry();
 
-        while ( newpop.size() < NB_INDIVIDUS ) {
-            if ( ( ( Double ) epop.getKey() ) > ( ( Double ) echild.getKey() ) ) {
-                newpop.put( ( Double ) echild.getKey(), ( Path ) echild.getValue() );
-                echild = ( Map.Entry ) childit.next();
-            } else {
-                newpop.put( ( Double ) epop.getKey(), ( Path ) epop.getValue() );
-                epop = ( Map.Entry ) popit.next();
-            }
-        }
-        population = newpop;
+//        TreeMap<Double, Path> newpop = new TreeMap<>();
+//        Iterator popit = population.entrySet().iterator();
+//        Iterator childit = childpop.entrySet().iterator();
+//        Map.Entry epop = (Map.Entry) popit.next();
+//        Map.Entry echild = (Map.Entry) childit.next();
+//
+//        while ( newpop.size() < NB_INDIVIDUS ) {
+//            if (( ( Double ) epop.getKey() ) > ( ( Double ) echild.getKey() )) {
+//                newpop.put( ( Double ) echild.getKey(), ( Path ) echild.getValue() );
+//                if(childit.hasNext()) echild = ( Map.Entry ) childit.next();
+//            } else {
+//                newpop.put( ( Double ) epop.getKey(), ( Path ) epop.getValue() );
+//                if(popit.hasNext()) epop = ( Map.Entry ) popit.next();
+//            }
+//        }
+//        population = newpop;
+
+
     }
 
 
